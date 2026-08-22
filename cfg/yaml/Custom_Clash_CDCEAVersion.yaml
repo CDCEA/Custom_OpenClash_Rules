@@ -470,11 +470,11 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  - name: "DIRECT"
-    type: url-test
-    url: http://wifi.vivo.com.cn/generate_204
-    proxies:
-      - DIRECT
+  # - name: "DIRECT"
+  #   type: url-test
+  #   url: http://wifi.vivo.com.cn/generate_204
+  #   proxies:
+  #     - DIRECT
 
 # ==================== 分流规则 Rules ====================
 # 规则自上而下匹配，命中首条规则后停止。
