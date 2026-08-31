@@ -556,7 +556,7 @@ proxy-groups:
     tolerance: 50
 
   # --- 地区测速策略组 Auto 日用 ---
-    - name: "HKauto 日用"
+  - name: "HKauto 日用"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '^(?=.*香港)(?=.*日用).*$'
@@ -566,7 +566,7 @@ proxy-groups:
       - provider1
       - provider2
 
-    - name: "USauto 日用"
+  - name: "USauto 日用"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '^(?=.*美国)(?=.*日用).*$'
@@ -576,7 +576,7 @@ proxy-groups:
       - provider1
       - provider2
 
-    - name: "JPauto 日用"
+  - name: "JPauto 日用"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '^(?=.*日本)(?=.*日用).*$'
@@ -586,7 +586,7 @@ proxy-groups:
       - provider1
       - provider2
 
-    - name: "SGauto 日用"
+  - name: "SGauto 日用"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '^(?=.*狮城)(?=.*日用).*$'
