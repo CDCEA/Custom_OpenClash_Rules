@@ -62,7 +62,7 @@ proxy-providers:
   #   path: ./proxy_provider/provider3.yaml
   #   proxy: DIRECT  # 下载订阅时使用的策略
   #   # 在 Provider 层统一排除公告、流量、到期等非节点条目，避免各策略组重复配置
-  #   filter: "^(?!.*(DIRECT|直接连接|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩[...]
+  #   filter: "^(?!.*(DIRECT|直接连接|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩[...]"
   #   header:  # 可选：自定义 HTTP 请求头
   #   health-check:
   #     enable: true
@@ -518,7 +518,7 @@ proxy-groups:
   - name: "JP"
     type: select
     url: https://cp.cloudflare.com/generate_204
-    filter: '(?i)(🇯🇵|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|(?<!尼|-)日|\bJP(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Japan|JAPAN|JPN|NRT|HND|KIX|TYO|OSA|关西|Kansai|KANS[...]'
+    filter: '(?i)(🇯🇵|日本|川日|东京|大阪|泉日|埼玉|沪日|深日|(?<!尼|-)日|\bJP(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Japan|JAPAN|JPN|NRT|HND|KIX|TYO|OSA|关西|Kansai|KANS[...)'
     use:
       - provider1
       - provider2
@@ -554,48 +554,6 @@ proxy-groups:
       - provider2
     interval: 300
     tolerance: 50
-
-  # --- 地区测速策略组 Auto 日用 ---
-  - name: "HKauto 日用"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '^(?=.*香港)(?=.*日用).*$'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
-  - name: "USauto 日用"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '^(?=.*美国)(?=.*日用).*$'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
-  - name: "JPauto 日用"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '^(?=.*日本)(?=.*日用).*$'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
-  - name: "SGauto 日用"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '^(?=.*狮城)(?=.*日用).*$'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
 
   # - name: "DIRECT"
   #   type: select
