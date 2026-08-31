@@ -29,7 +29,7 @@ proxy-providers:
       udp: true
       # 不建议默认跳过 TLS 证书校验；仅在明确需要兼容特定节点时启用
       # skip-cert-verify: true
-      # additional-prefix: "[provider1]"
+      additional-prefix: "Pv1"
       # additional-suffix: "test"
 
   provider2:
@@ -52,7 +52,7 @@ proxy-providers:
       udp: true
       # 不建议默认跳过 TLS 证书校验；仅在明确需要兼容特定节点时启用
       # skip-cert-verify: true
-      # additional-prefix: "[provider1]"
+      additional-prefix: "Pv2"
       # additional-suffix: "test"
 
   # provider3:
@@ -75,7 +75,7 @@ proxy-providers:
   #     udp: true
   #     # 不建议默认跳过 TLS 证书校验；仅在明确需要兼容特定节点时启用
   #     # skip-cert-verify: true
-  #     # additional-prefix: "[provider1]"
+  #     # additional-prefix: "Pv3"
   #     # additional-suffix: "test"
 
 # ==================== 代理策略组 Proxy Groups ====================
