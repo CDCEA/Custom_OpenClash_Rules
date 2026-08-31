@@ -85,6 +85,10 @@ proxy-groups:
   - name: "Proxies"
     type: select
     proxies:
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "Auto"
       - "HK"
       - "US"
@@ -109,6 +113,10 @@ proxy-groups:
     type: select
     proxies:
       - "Proxies"
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "Auto"
       - "HK"
       - "US"
@@ -117,14 +125,15 @@ proxy-groups:
       - "CN"
       - "KR"
       - "DIRECT"
-    use:
-      - provider1
-      - provider2
 
   - name: "社交媒体"
     type: select
     proxies:
       - "Proxies"
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "Auto"
       - "HK"
       - "US"
@@ -133,14 +142,15 @@ proxy-groups:
       - "CN"
       - "KR"
       - "DIRECT"
-    use:
-      - provider1
-      - provider2
 
   - name: "GitHub"
     type: select
     proxies:
       - "Proxies"
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "Auto"
       - "HK"
       - "US"
@@ -149,14 +159,15 @@ proxy-groups:
       - "CN"
       - "KR"
       - "DIRECT"
-    use:
-      - provider1
-      - provider2
 
   - name: "ChatGPT"
     type: select
     proxies:
       - "Proxies"
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "Auto"
       - "SG"
       - "HK"
@@ -172,6 +183,10 @@ proxy-groups:
     type: select
     proxies:
       - "Proxies"
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "Auto"
       - "SG"
       - "HK"
@@ -366,6 +381,10 @@ proxy-groups:
     type: select
     proxies:
       - "Proxies"
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "Auto"
       - "HK"
       - "US"
@@ -381,6 +400,10 @@ proxy-groups:
     type: select
     proxies:
       - "Proxies"
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "Auto"
       - "HK"
       - "US"
@@ -478,6 +501,10 @@ proxy-groups:
       - "Proxies"
       - "Auto"
       - "DIRECT"
+      - "HKauto 日用"
+      - "USauto 日用"
+      - "JPauto 日用"
+      - "SGauto 日用"
       - "HK"
       - "US"
       - "JP"
@@ -554,6 +581,48 @@ proxy-groups:
       - provider2
     interval: 300
     tolerance: 50
+
+  # --- 地区测速策略组 Auto 日用 ---
+    - name: "HKauto 日用"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '^(?=.*香港)(?=.*日用).*$'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+    - name: "USauto 日用"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '^(?=.*美国)(?=.*日用).*$'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+    - name: "JPauto 日用"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '^(?=.*日本)(?=.*日用).*$'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+    - name: "SGauto 日用"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '^(?=.*狮城)(?=.*日用).*$'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
 
   # - name: "DIRECT"
   #   type: select
