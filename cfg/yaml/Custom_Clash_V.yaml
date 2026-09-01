@@ -62,7 +62,7 @@ proxy-groups:
     type: select
     proxies:
       - "DIRECT"
-      - "AHKD"
+      - "AHK 日用"
       - "HK"
       - "US"
       - "JP"
@@ -76,7 +76,7 @@ proxy-groups:
     type: select
     proxies:
       - "Proxies"
-      - "SUSG"
+      - "ZUS 高级"
       - "SG"
       - "HK"
       - "US"
@@ -90,7 +90,7 @@ proxy-groups:
     type: select
     proxies:
       - "Proxies"
-      - "SUSG"
+      - "ZUS 高级"
       - "SG"
       - "HK"
       - "US"
@@ -431,27 +431,27 @@ proxy-groups:
   - name: "HK"
     type: select
     proxies:
-      - "AHKD"
-      - "AHKG"
+      - "AHK 日用"
+      - "ZHK 高级"
 
   - name: "US"
     type: select
     proxies:
-      - "AUSD"
-      - "SUSG"
-      - "AUSG"
+      - "AUS 日用"
+      - "SUS 高级"
+      - "ZUS 高级"
 
   - name: "JP"
     type: select
     proxies:
-      - "AJPD"
-      - "AJPG"
+      - "AJP 日用"
+      - "ZJP 高级"
 
   - name: "SG"
     type: select
     proxies:
-      - "ASGD"
-      - "ASGG"
+      - "ASG 日用"
+      - "ZSG 高级"
 
   - name: "TW"
     type: url-test
@@ -463,45 +463,45 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "AHKG"
+  - name: "ZHK 高级"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '(高级|香港)'
+    filter: '高级.*香港'
     interval: 300
     tolerance: 50
     use:
       - provider1
       - provider2
 
-  - name: "AUSG"
+  - name: "ZUS 高级"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '(高级|美国)'
+    filter: '高级.*美国'
     interval: 300
     tolerance: 50
     use:
       - provider1
       - provider2
 
-  - name: "SUSG"
+  - name: "SUS 高级"
     type: select
-    filter: '(高级|美国)'
+    filter: '高级.*美国'
     use:
       - provider1
       - provider2
 
-  - name: "AJPG"
+  - name: "ZJP 高级"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '(高级|日本)'
+    filter: '高级.*日本'
     use:
       - provider1
       - provider2
 
-  - name: "ASGG"
+  - name: "ZSG 高级"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '(高级|狮城)'
+    filter: '高级.*狮城'
     use:
       - provider1
       - provider2
@@ -527,40 +527,40 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "AHKD"
+  - name: "AHK 日用"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '(日用|香港)'
+    filter: '日用.*香港'
     interval: 300
     tolerance: 50
     use:
       - provider1
       - provider2
 
-  - name: "AUSD"
+  - name: "AUS 日用"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '(日用|美国)'
+    filter: '日用.*美国'
     interval: 300
     tolerance: 50
     use:
       - provider1
       - provider2
 
-  - name: "ASGD"
+  - name: "ASG 日用"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '(日用|狮城)'
+    filter: '日用.*狮城'
     interval: 300
     tolerance: 50
     use:
       - provider1
       - provider2
 
-  - name: "AJPD"
+  - name: "AJP 日用"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
-    filter: '(日用|日本)'
+    filter: '日用.*日本'
     interval: 300
     tolerance: 50
     use:
