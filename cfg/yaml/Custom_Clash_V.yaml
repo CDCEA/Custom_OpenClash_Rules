@@ -75,11 +75,11 @@ proxy-groups:
   - name: "ChatGPT"
     type: select
     proxies:
+      - "US"
       - "Proxies"
-      - "ZUS 高级"
+      - "SUS 高级"
       - "SG"
       - "HK"
-      - "US"
       - "JP"
       - "TW"
       - "TS1"
@@ -89,11 +89,11 @@ proxy-groups:
   - name: "AI服务"
     type: select
     proxies:
-      - "Proxies"
-      - "ZUS 高级"
-      - "SG"
-      - "HK"
       - "US"
+      - "Proxies"
+      - "SUS 高级"
+      - "HK"
+      - "SG"
       - "JP"
       - "TW"
       - "TS1"
@@ -483,13 +483,6 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "SUS 高级"
-    type: select
-    filter: '高级.*美国'
-    use:
-      - provider1
-      - provider2
-
   - name: "ZJP 高级"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
@@ -506,23 +499,9 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "TS1"
+  - name: "SUS 高级"
     type: select
-    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
-    use:
-      - provider1
-      - provider2
-
-  - name: "TS2"
-    type: select
-    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
-    use:
-      - provider1
-      - provider2
-
-  - name: "TS3"
-    type: select
-    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
+    filter: '高级.*美国'
     use:
       - provider1
       - provider2
@@ -563,6 +542,27 @@ proxy-groups:
     filter: '日用.*日本'
     interval: 300
     tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+  - name: "TS1"
+    type: select
+    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "TS2"
+    type: select
+    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "TS3"
+    type: select
+    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
     use:
       - provider1
       - provider2
