@@ -100,19 +100,19 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  - name: "Paypa1"
-    type: select
-    proxies:
-      - "Proxies"
-      - "SUSG"
-      - "SG"
-      - "HK"
-      - "US"
-      - "JP"
-      - "TW"
-      - "TS1"
-      - "TS2"
-      - "TS3"
+  # - name: "Paypa1"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "SUSG"
+  #     - "SG"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
 
   - name: "YouTube"
     type: select
@@ -595,10 +595,10 @@ rules:
   - "GEOSITE,category-social-media-!cn,社交媒体"
   - "GEOSITE,openai,ChatGPT"
   - "GEOSITE,category-ai-!cn,AI服务"
-  - "GEOSITE,paypa1,Paypa1"
-  - "GEOSITE,wise,Paypa1"
-  - "GEOSITE,irs,Paypa1"
-  - "GEOSITE,olt,Paypa1"
+  # - "GEOSITE,paypa1,Paypa1"
+  # - "GEOSITE,wise,Paypa1"
+  # - "GEOSITE,irs,Paypa1"
+  # - "GEOSITE,olt,Paypa1"
   - "GEOSITE,github,GitHub"
   - "GEOSITE,category-speedtest,测速工具"
   - "GEOSITE,steam,Steam"
