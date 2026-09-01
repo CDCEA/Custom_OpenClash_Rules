@@ -570,7 +570,7 @@ proxy-groups:
 
   # - name: "DIRECT"
   #   type: select
-  #   url: http://wifi.vivo.com.TW/generate_204
+  #   url: http://wifi.vivo.com.cn/generate_204
   #   proxies:
   #     - DIRECT
 
@@ -585,16 +585,16 @@ rules:
   - "RULE-SET,Custom_Direct_Port,DIRECT"
   - "RULE-SET,Custom_Proxy_Domain,Proxies"
   - "RULE-SET,Custom_Proxy_IP,Proxies,no-resolve"
-  - "GEOSITE,google-TW,DIRECT"
-  - "GEOSITE,category-games@TW,DIRECT"
+  - "GEOSITE,google-cn,DIRECT"
+  - "GEOSITE,category-games@cn,DIRECT"
   - "RULE-SET,Steam_CDN_Domain,DIRECT"
   - "RULE-SET,Steam_CDN_IP,DIRECT,no-resolve"
   - "GEOSITE,category-game-platforms-download,DIRECT"
   - "GEOSITE,category-public-tracker,DIRECT"
   - "GEOSITE,category-communication,社交媒体"
-  - "GEOSITE,category-social-media-!TW,社交媒体"
+  - "GEOSITE,category-social-media-!cn,社交媒体"
   - "GEOSITE,openai,ChatGPT"
-  - "GEOSITE,category-ai-!TW,AI服务"
+  - "GEOSITE,category-ai-!cn,AI服务"
   - "GEOSITE,paypa1,Paypa1"
   - "GEOSITE,wise,Paypa1"
   - "GEOSITE,irs,Paypa1"
@@ -625,8 +625,8 @@ rules:
   - "GEOIP,facebook,社交媒体,no-resolve"
   - "GEOIP,google,谷歌服务,no-resolve"
   - "GEOIP,netflix,Netflix,no-resolve"
-  - "GEOSITE,TW,DIRECT"
-  - "GEOIP,TW,DIRECT,no-resolve"
+  - "GEOSITE,cn,DIRECT"
+  - "GEOIP,cn,DIRECT,no-resolve"
   - "RULE-SET,Nonstandard_Port_Direct,非标端口"
   - "MATCH,Final"
 
