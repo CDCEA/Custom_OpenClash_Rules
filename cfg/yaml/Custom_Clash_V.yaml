@@ -72,6 +72,19 @@ proxy-groups:
       - provider1
       - provider2
 
+  - name: "谷歌FCM"
+    type: select
+    proxies:
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
   - name: "ChatGPT"
     type: select
     proxies:
@@ -81,6 +94,19 @@ proxy-groups:
       - "SG"
       - "HK"
       - "JP"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "谷歌服务"
+    type: select
+    proxies:
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
       - "TW"
       - "TS1"
       - "TS2"
@@ -100,20 +126,6 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  # - name: "Paypa1"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "SUSG"
-  #     - "SG"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
-
   - name: "YouTube"
     type: select
     proxies:
@@ -126,88 +138,6 @@ proxy-groups:
       - "TS1"
       - "TS2"
       - "TS3"
-
-  - name: "谷歌FCM"
-    type: select
-    proxies:
-      - "Proxies"
-      - "HK"
-      - "US"
-      - "JP"
-      - "SG"
-      - "TW"
-      - "TS1"
-      - "TS2"
-      - "TS3"
-
-  - name: "谷歌服务"
-    type: select
-    proxies:
-      - "Proxies"
-      - "HK"
-      - "US"
-      - "JP"
-      - "SG"
-      - "TW"
-      - "TS1"
-      - "TS2"
-      - "TS3"
-
-  - name: "苹果服务"
-    type: select
-    proxies:
-      - "DIRECT"
-      - "Proxies"
-      - "HK"
-      - "US"
-      - "JP"
-      - "SG"
-      - "TW"
-      - "TS1"
-      - "TS2"
-      - "TS3"
-
-  - name: "微软服务"
-    type: select
-    proxies:
-      - "DIRECT"
-      - "Proxies"
-      - "HK"
-      - "US"
-      - "JP"
-      - "SG"
-      - "TW"
-      - "TS1"
-      - "TS2"
-      - "TS3"
-
-  # - name: "即时通讯"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "SG"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
-  #     - "DIRECT"
-
-  - name: "社交媒体"
-    type: select
-    proxies:
-      - "Proxies"
-      - "HK"
-      - "US"
-      - "JP"
-      - "SG"
-      - "TW"
-      - "TS1"
-      - "TS2"
-      - "TS3"
-      - "DIRECT"
 
   - name: "GitHub"
     type: select
@@ -223,6 +153,67 @@ proxy-groups:
       - "TS3"
       - "DIRECT"
 
+  - name: "苹果服务"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+      
+  - name: "HK"
+    type: select
+    proxies:
+      - "AHK 日用"
+      - "ZHK 高级"
+
+  - name: "微软服务"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+      
+  - name: "US"
+    type: select
+    proxies:
+      - "AUS 日用"
+      - "SUS 高级"
+      - "ZUS 高级"
+
+  - name: "社交媒体"
+    type: select
+    proxies:
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+      - "DIRECT"
+
+  - name: "JP"
+    type: select
+    proxies:
+      - "AJP 日用"
+      - "ZJP 高级"
+
   - name: "TikTok"
     type: select
     proxies:
@@ -236,99 +227,11 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  # - name: "Netflix"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "SG"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
-
-  # - name: "DisneyPlus"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "SG"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
-
-  # - name: "HBO"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "SG"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
-
-  # - name: "PrimeVideo"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "SG"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
-
-  # - name: "AppleTV+"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "SG"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
-  #     - "DIRECT"
-
-  # - name: "Emby"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "DIRECT"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "SG"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
-
-  # - name: "Spotify"
-  #   type: select
-  #   proxies:
-  #     - "Proxies"
-  #     - "DIRECT"
-  #     - "HK"
-  #     - "US"
-  #     - "JP"
-  #     - "SG"
-  #     - "TW"
-  #     - "TS1"
-  #     - "TS2"
-  #     - "TS3"
+  - name: "SG"
+    type: select
+    proxies:
+      - "ASG 日用"
+      - "ZSG 高级"
 
   - name: "Bahamut"
     type: select
@@ -336,6 +239,16 @@ proxy-groups:
       - "TW"
       - "Proxies"
       - "DIRECT"
+
+  - name: "TW"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(?i)(🇹🇼|🇼🇸|台|新北|彰化|\bTW(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Taiwan|TAIWAN|TWN|TPE|ROC)'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
 
   - name: "国外媒体"
     type: select
@@ -349,6 +262,16 @@ proxy-groups:
       - "TS1"
       - "TS2"
       - "TS3"
+
+  - name: "AHK 日用"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '日用.*香港'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
 
   - name: "国外电商"
     type: select
@@ -364,6 +287,16 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
+  - name: "AUS 日用"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '日用.*美国'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
   - name: "游戏平台"
     type: select
     proxies:
@@ -377,6 +310,16 @@ proxy-groups:
       - "TS1"
       - "TS2"
       - "TS3"
+
+  - name: "ASG 日用"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '日用.*狮城'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
 
   - name: "Steam"
     type: select
@@ -392,6 +335,16 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
+  - name: "AJP 日用"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '日用.*日本'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
   - name: "测速工具"
     type: select
     proxies:
@@ -405,6 +358,16 @@ proxy-groups:
       - "TS1"
       - "TS2"
       - "TS3"
+
+  - name: "ZHK 高级"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '高级.*香港'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
 
   - name: "Final"
     type: select
@@ -420,59 +383,6 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  - name: "非标端口"
-    type: select
-    proxies:
-      - "Final"
-      - "DIRECT"
-
-  # --- 地区测速策略组 ---
-
-  - name: "HK"
-    type: select
-    proxies:
-      - "AHK 日用"
-      - "ZHK 高级"
-
-  - name: "US"
-    type: select
-    proxies:
-      - "AUS 日用"
-      - "SUS 高级"
-      - "ZUS 高级"
-
-  - name: "JP"
-    type: select
-    proxies:
-      - "AJP 日用"
-      - "ZJP 高级"
-
-  - name: "SG"
-    type: select
-    proxies:
-      - "ASG 日用"
-      - "ZSG 高级"
-
-  - name: "TW"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '(?i)(🇹🇼|🇼🇸|台|新北|彰化|\bTW(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Taiwan|TAIWAN|TWN|TPE|ROC)'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
-  - name: "ZHK 高级"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '高级.*香港'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
   - name: "ZUS 高级"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
@@ -483,10 +393,25 @@ proxy-groups:
       - provider1
       - provider2
 
+  - name: "非标端口"
+    type: select
+    proxies:
+      - "Final"
+      - "DIRECT"
+
+  # --- 地区测速策略组 ---
+
   - name: "ZJP 高级"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '高级.*日本'
+    use:
+      - provider1
+      - provider2
+
+  - name: "TS1"
+    type: select
+    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
     use:
       - provider1
       - provider2
@@ -499,63 +424,16 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "SUS 高级"
-    type: select
-    filter: '高级.*美国'
-    use:
-      - provider1
-      - provider2
-
-  - name: "AHK 日用"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '日用.*香港'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
-  - name: "AUS 日用"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '日用.*美国'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
-  - name: "ASG 日用"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '日用.*狮城'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
-  - name: "AJP 日用"
-    type: url-test
-    url: https://cp.cloudflare.com/generate_204
-    filter: '日用.*日本'
-    interval: 300
-    tolerance: 50
-    use:
-      - provider1
-      - provider2
-
-  - name: "TS1"
-    type: select
-    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
-    use:
-      - provider1
-      - provider2
-
   - name: "TS2"
     type: select
     filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "SUS 高级"
+    type: select
+    filter: '高级.*美国'
     use:
       - provider1
       - provider2
@@ -566,13 +444,6 @@ proxy-groups:
     use:
       - provider1
       - provider2
-
-
-  # - name: "DIRECT"
-  #   type: select
-  #   url: http://wifi.vivo.com.cn/generate_204
-  #   proxies:
-  #     - DIRECT
 
 # ==================== 分流规则 Rules ====================
 # 规则自上而下匹配，命中首条规则后停止。
@@ -595,10 +466,6 @@ rules:
   - "GEOSITE,category-social-media-!cn,社交媒体"
   - "GEOSITE,openai,ChatGPT"
   - "GEOSITE,category-ai-!cn,AI服务"
-  # - "GEOSITE,paypa1,Paypa1"
-  # - "GEOSITE,wise,Paypa1"
-  # - "GEOSITE,irs,Paypa1"
-  # - "GEOSITE,olt,Paypa1"
   - "GEOSITE,github,GitHub"
   - "GEOSITE,category-speedtest,测速工具"
   - "GEOSITE,steam,Steam"
