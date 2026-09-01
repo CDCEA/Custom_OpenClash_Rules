@@ -369,6 +369,20 @@ proxy-groups:
       - provider1
       - provider2
 
+  - name: "Paypal"
+    type: select
+    proxies:
+      - "Proxies"
+      - "DIRECT"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
   - name: "Final"
     type: select
     proxies:
