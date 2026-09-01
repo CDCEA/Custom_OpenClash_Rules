@@ -76,12 +76,12 @@ proxy-groups:
     type: select
     proxies:
       - "US"
-      - "Proxies"
       - "SUSGJ"
-      - "SG"
       - "HK"
+      - "SG"
       - "JP"
       - "TW"
+      - "Proxies"
       - "TS1"
       - "TS2"
       - "TS3"
@@ -136,16 +136,17 @@ proxy-groups:
   - name: "Paypal"
     type: select
     proxies:
-      - "Proxies"
-      - "DIRECT"
-      - "HK"
+      - "SUSGJ"
       - "US"
-      - "JP"
+      - "HK"
       - "SG"
+      - "JP"
       - "TW"
       - "TS1"
       - "TS2"
       - "TS3"
+      - "Proxies"
+      - "DIRECT"
 
   - name: "JP"
     type: select
@@ -357,15 +358,16 @@ proxy-groups:
     type: select
     proxies:
       - "Proxies"
-      - "DIRECT"
-      - "HK"
+      - "SUSGJ"
       - "US"
+      - "HK"
       - "JP"
       - "SG"
       - "TW"
       - "TS1"
       - "TS2"
       - "TS3"
+      - "DIRECT"
 
   - name: "SUSGJ"
     type: select
