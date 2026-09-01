@@ -62,7 +62,7 @@ proxy-groups:
     type: select
     proxies:
       - "DIRECT"
-      - "AHK 日用"
+      - "AHK02"
       - "HK"
       - "US"
       - "JP"
@@ -90,7 +90,7 @@ proxy-groups:
     proxies:
       - "US"
       - "Proxies"
-      - "SUS 高级"
+      - "SUSGJ"
       - "SG"
       - "HK"
       - "JP"
@@ -117,7 +117,7 @@ proxy-groups:
     proxies:
       - "US"
       - "Proxies"
-      - "SUS 高级"
+      - "SUSGJ"
       - "HK"
       - "SG"
       - "JP"
@@ -170,8 +170,8 @@ proxy-groups:
   - name: "HK"
     type: select
     proxies:
-      - "AHK 日用"
-      - "ZHK 高级"
+      - "AHK02"
+      - "AHKGJ"
 
   - name: "微软服务"
     type: select
@@ -190,9 +190,9 @@ proxy-groups:
   - name: "US"
     type: select
     proxies:
-      - "AUS 日用"
-      - "SUS 高级"
-      - "ZUS 高级"
+      - "AUS02"
+      - "SUSGJ"
+      - "AUSGJ"
 
   - name: "社交媒体"
     type: select
@@ -211,8 +211,8 @@ proxy-groups:
   - name: "JP"
     type: select
     proxies:
-      - "AJP 日用"
-      - "ZJP 高级"
+      - "AJP02"
+      - "AJPGJ"
 
   - name: "TikTok"
     type: select
@@ -230,8 +230,8 @@ proxy-groups:
   - name: "SG"
     type: select
     proxies:
-      - "ASG 日用"
-      - "ZSG 高级"
+      - "ASG02"
+      - "ASGGJ"
 
   - name: "Bahamut"
     type: select
@@ -263,7 +263,7 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  - name: "AHK 日用"
+  - name: "AHK02"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '日用.*香港'
@@ -287,7 +287,7 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  - name: "AUS 日用"
+  - name: "AUS02"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '日用.*美国'
@@ -311,7 +311,7 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  - name: "ASG 日用"
+  - name: "ASG02"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '日用.*狮城'
@@ -335,7 +335,7 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  - name: "AJP 日用"
+  - name: "AJP02"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '日用.*日本'
@@ -359,7 +359,7 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  - name: "ZHK 高级"
+  - name: "AHKGJ"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '高级.*香港'
@@ -383,7 +383,7 @@ proxy-groups:
       - "TS2"
       - "TS3"
 
-  - name: "ZUS 高级"
+  - name: "AUSGJ"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '高级.*美国'
@@ -401,7 +401,7 @@ proxy-groups:
 
   # --- 地区测速策略组 ---
 
-  - name: "ZJP 高级"
+  - name: "AJPGJ"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '高级.*日本'
@@ -416,7 +416,7 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "ZSG 高级"
+  - name: "ASGGJ"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '高级.*狮城'
@@ -431,7 +431,7 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "SUS 高级"
+  - name: "SUSGJ"
     type: select
     filter: '高级.*美国'
     use:
