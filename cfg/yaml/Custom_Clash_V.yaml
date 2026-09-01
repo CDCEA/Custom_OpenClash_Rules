@@ -528,7 +528,7 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "HKAD"
+  - name: "AHKD"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '(日用|香港)'
@@ -538,7 +538,7 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "USAD"
+  - name: "AUSD"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '(日用|美国)'
@@ -548,7 +548,7 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "SGAD"
+  - name: "ASGD"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '(日用|狮城)'
@@ -558,7 +558,7 @@ proxy-groups:
       - provider1
       - provider2
 
-  - name: "JPAD"
+  - name: "AJPD"
     type: url-test
     url: https://cp.cloudflare.com/generate_204
     filter: '(日用|日本)'
