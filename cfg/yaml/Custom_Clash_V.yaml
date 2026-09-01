@@ -1,0 +1,692 @@
+# Custom_OpenClash_Rules
+# OpenClash 专用最小 YAML 配置文件（标准版）
+# 项目地址：https://github.com/Aethersailor/Custom_OpenClash_Rules
+# 本文件仅定义节点来源、静态节点、策略组、规则提供者与分流规则。
+# 端口、运行模式、DNS、IPv6、TUN、嗅探、GeoData、日志及控制器等参数全部由 OpenClash LuCI 管理。
+# 建议先按照项目 Wiki 完成 OpenClash 设置，再加载本配置。
+
+# ==================== 代理提供者 Proxy Providers ====================
+# provider1 用于加载机场订阅；多订阅用户可复制并依次命名为 provider2、provider3……
+# 新增 Provider 后，还需将其加入相关策略组的 use 列表。
+proxy-providers:
+  provider1:
+    type: http
+    url: "url"  # 填入订阅链接
+    interval: 3600  # 订阅更新间隔，单位：秒
+    path: ./proxy_provider/provider1.yaml
+    proxy: DIRECT  # 下载订阅时使用的策略
+    # 在 Provider 层统一排除公告、流量、到期等非节点条目，避免各策略组重复配置
+    filter: "^(?!.*(DIRECT|直接连接|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic|GB|Expire)).*$"
+    header:  # 可选：自定义 HTTP 请求头
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: false
+      expected-status: 204
+    override:
+      udp: true
+      # 不建议默认跳过 TLS 证书校验；仅在明确需要兼容特定节点时启用
+      # skip-cert-verify: true
+      additional-prefix: "Pv1"
+      # additional-suffix: "test"
+
+  provider2:
+    type: http
+    url: "url"  # 填入订阅链接
+    interval: 3600  # 订阅更新间隔，单位：秒
+    path: ./proxy_provider/provider2.yaml
+    proxy: DIRECT  # 下载订阅时使用的策略
+    # 在 Provider 层统一排除公告、流量、到期等非节点条目，避免各策略组重复配置
+    filter: "^(?!.*(DIRECT|直接连接|群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic|GB|Expire)).*$"
+    header:  # 可选：自定义 HTTP 请求头
+    health-check:
+      enable: true
+      url: https://cp.cloudflare.com/generate_204
+      interval: 300
+      timeout: 5000
+      lazy: false
+      expected-status: 204
+    override:
+      udp: true
+      # 不建议默认跳过 TLS 证书校验；仅在明确需要兼容特定节点时启用
+      # skip-cert-verify: true
+      additional-prefix: "Pv2"
+      # additional-suffix: "test"
+
+# 策略组候选项和节点注入逻辑与当前 Custom_Clash.ini 保持一致。
+proxy-groups:
+  # --- 核心与业务策略组 ---
+  - name: "Proxies"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "AHKD"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+    use:
+      - provider1
+      - provider2
+
+  - name: "ChatGPT"
+    type: select
+    proxies:
+      - "Proxies"
+      - "SUSG"
+      - "SG"
+      - "HK"
+      - "US"
+      - "JP"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "AI服务"
+    type: select
+    proxies:
+      - "Proxies"
+      - "SUSG"
+      - "SG"
+      - "HK"
+      - "US"
+      - "JP"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "Paypa1"
+    type: select
+    proxies:
+      - "Proxies"
+      - "SUSG"
+      - "SG"
+      - "HK"
+      - "US"
+      - "JP"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "YouTube"
+    type: select
+    proxies:
+      - "Proxies"
+      - "SG"
+      - "HK"
+      - "US"
+      - "JP"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "谷歌FCM"
+    type: select
+    proxies:
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "谷歌服务"
+    type: select
+    proxies:
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "苹果服务"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "微软服务"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  # - name: "即时通讯"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "SG"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
+  #     - "DIRECT"
+
+  - name: "社交媒体"
+    type: select
+    proxies:
+      - "Proxies"
+      - "Auto"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+      - "DIRECT"
+
+  - name: "GitHub"
+    type: select
+    proxies:
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+      - "DIRECT"
+
+  - name: "TikTok"
+    type: select
+    proxies:
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  # - name: "Netflix"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "SG"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
+
+  # - name: "DisneyPlus"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "SG"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
+
+  # - name: "HBO"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "SG"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
+
+  # - name: "PrimeVideo"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "SG"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
+
+  # - name: "AppleTV+"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "SG"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
+  #     - "DIRECT"
+
+  # - name: "Emby"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "DIRECT"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "SG"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
+
+  # - name: "Spotify"
+  #   type: select
+  #   proxies:
+  #     - "Proxies"
+  #     - "DIRECT"
+  #     - "HK"
+  #     - "US"
+  #     - "JP"
+  #     - "SG"
+  #     - "TW"
+  #     - "TS1"
+  #     - "TS2"
+  #     - "TS3"
+
+  - name: "Bahamut"
+    type: select
+    proxies:
+      - "TW"
+      - "Proxies"
+      - "DIRECT"
+
+  - name: "国外媒体"
+    type: select
+    proxies:
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "国外电商"
+    type: select
+    proxies:
+      - "Proxies"
+      - "DIRECT"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "游戏平台"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "Steam"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "测速工具"
+    type: select
+    proxies:
+      - "DIRECT"
+      - "Proxies"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "Final"
+    type: select
+    proxies:
+      - "Proxies"
+      - "DIRECT"
+      - "HK"
+      - "US"
+      - "JP"
+      - "SG"
+      - "TW"
+      - "TS1"
+      - "TS2"
+      - "TS3"
+
+  - name: "非标端口"
+    type: select
+    proxies:
+      - "Final"
+      - "DIRECT"
+
+  # --- 地区测速策略组 ---
+
+  - name: "HK"
+    type: select
+    proxies:
+      - "AHKD"
+      - "AHKG"
+
+  - name: "US"
+    type: select
+    proxies:
+      - "AUSD"
+      - "SUSG"
+      - "AUSG"
+
+  - name: "JP"
+    type: select
+    proxies:
+      - "AJPD"
+      - "AJPG"
+
+  - name: "SG"
+    type: select
+    proxies:
+      - "ASGD"
+      - "ASGG"
+
+  - name: "TW"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(?i)(🇹🇼|🇼🇸|台|新北|彰化|\bTW(?:[-_ ]?\d+(?:[-_ ]?[A-Za-z]{2,})?)?\b|Taiwan|TAIWAN|TWN|TPE|ROC)'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+  - name: "AHKG"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(高级|香港)'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+  - name: "AUSG"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(高级|美国)'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+  - name: "SUSG"
+    type: select
+    filter: '(高级|美国)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "AJPG"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(高级|日本)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "ASGG"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(高级|狮城)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "TS1"
+    type: select
+    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "TS2"
+    type: select
+    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "TS3"
+    type: select
+    filter: '(阿根廷|摩尔多瓦|巴基斯坦|尼日利亚|马来西亚|乌克兰|以色列|匈牙利|西班牙|意大利|菲律宾|埃及|南非|印尼|荷兰|法国|迪拜|悉尼|印度|越南|泰国|土耳其|加拿大|巴西|德国|伦敦|韩国)'
+    use:
+      - provider1
+      - provider2
+
+  - name: "HKAD"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(日用|香港)'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+  - name: "USAD"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(日用|美国)'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+  - name: "SGAD"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(日用|狮城)'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+  - name: "JPAD"
+    type: url-test
+    url: https://cp.cloudflare.com/generate_204
+    filter: '(日用|日本)'
+    interval: 300
+    tolerance: 50
+    use:
+      - provider1
+      - provider2
+
+
+  # - name: "DIRECT"
+  #   type: select
+  #   url: http://wifi.vivo.com.TW/generate_204
+  #   proxies:
+  #     - DIRECT
+
+# ==================== 分流规则 Rules ====================
+# 规则自上而下匹配，命中首条规则后停止。
+# no-resolve 用于 IP 类规则，避免为规则匹配额外触发 DNS 解析。
+rules:
+  - "GEOSITE,private,DIRECT"
+  - "GEOIP,private,DIRECT,no-resolve"
+  - "RULE-SET,Custom_Direct_Domain,DIRECT"
+  - "RULE-SET,Custom_Direct_IP,DIRECT,no-resolve"
+  - "RULE-SET,Custom_Direct_Port,DIRECT"
+  - "RULE-SET,Custom_Proxy_Domain,Proxies"
+  - "RULE-SET,Custom_Proxy_IP,Proxies,no-resolve"
+  - "GEOSITE,google-TW,DIRECT"
+  - "GEOSITE,category-games@TW,DIRECT"
+  - "RULE-SET,Steam_CDN_Domain,DIRECT"
+  - "RULE-SET,Steam_CDN_IP,DIRECT,no-resolve"
+  - "GEOSITE,category-game-platforms-download,DIRECT"
+  - "GEOSITE,category-public-tracker,DIRECT"
+  - "GEOSITE,category-communication,社交媒体"
+  - "GEOSITE,category-social-media-!TW,社交媒体"
+  - "GEOSITE,openai,ChatGPT"
+  - "GEOSITE,category-ai-!TW,AI服务"
+  - "GEOSITE,paypa1,Paypa1"
+  - "GEOSITE,wise,Paypa1"
+  - "GEOSITE,irs,Paypa1"
+  - "GEOSITE,olt,Paypa1"
+  - "GEOSITE,github,GitHub"
+  - "GEOSITE,category-speedtest,测速工具"
+  - "GEOSITE,steam,Steam"
+  - "GEOSITE,youtube,YouTube"
+  - "GEOSITE,apple-tvplus,国外媒体"
+  - "GEOSITE,apple,苹果服务"
+  - "GEOSITE,microsoft,微软服务"
+  - "GEOSITE,googlefcm,谷歌FCM"
+  - "GEOSITE,google,谷歌服务"
+  - "GEOSITE,tiktok,TikTok"
+  - "GEOSITE,netflix,国外媒体"
+  - "GEOSITE,disney,国外媒体"
+  - "GEOSITE,hbo,国外媒体"
+  - "GEOSITE,primevideo,国外媒体"
+  - "GEOSITE,category-emby,国外媒体"
+  - "GEOSITE,spotify,国外媒体"
+  - "GEOSITE,bahamut,Bahamut"
+  - "GEOSITE,category-games,游戏平台"
+  - "GEOSITE,category-entertainment,国外媒体"
+  - "GEOSITE,category-ecommerce,国外电商"
+  - "GEOSITE,gfw,Proxies"
+  - "GEOIP,telegram,即时通讯,no-resolve"
+  - "GEOIP,twitter,社交媒体,no-resolve"
+  - "GEOIP,facebook,社交媒体,no-resolve"
+  - "GEOIP,google,谷歌服务,no-resolve"
+  - "GEOIP,netflix,Netflix,no-resolve"
+  - "GEOSITE,TW,DIRECT"
+  - "GEOIP,TW,DIRECT,no-resolve"
+  - "RULE-SET,Nonstandard_Port_Direct,非标端口"
+  - "MATCH,Final"
+
+# ==================== 规则提供者 Rule Providers ====================
+# Domain/IP 规则优先使用 MRS；包含端口等复合规则时使用 Classical YAML。
+# 更新周期与 Custom_Clash.ini 保持一致：28800 秒（8 小时）。
+rule-providers:
+  Nonstandard_Port_Direct:
+    behavior: classical
+    interval: 28800
+    type: http
+    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Port_Direct.yaml"
+    format: yaml
+
+  Custom_Direct_Domain:
+    behavior: domain
+    interval: 28800
+    type: http
+    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Domain.mrs"
+    format: mrs
+
+  Custom_Direct_IP:
+    behavior: ipcidr
+    interval: 28800
+    type: http
+    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_IP.mrs"
+    format: mrs
+
+  Custom_Direct_Port:
+    behavior: classical
+    interval: 28800
+    type: http
+    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Direct_Classical_Port.yaml"
+    format: yaml
+
+  Custom_Proxy_Domain:
+    behavior: domain
+    interval: 28800
+    type: http
+    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_Domain.mrs"
+    format: mrs
+
+  Custom_Proxy_IP:
+    behavior: ipcidr
+    interval: 28800
+    type: http
+    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Custom_Proxy_IP.mrs"
+    format: mrs
+
+  Steam_CDN_Domain:
+    behavior: domain
+    interval: 28800
+    type: http
+    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Steam_CDN_Domain.mrs"
+    format: mrs
+
+  Steam_CDN_IP:
+    behavior: ipcidr
+    interval: 28800
+    type: http
+    url: "https://testingcf.jsdelivr.net/gh/Aethersailor/Custom_OpenClash_Rules@main/rule/Steam_CDN_IP.mrs"
+    format: mrs
